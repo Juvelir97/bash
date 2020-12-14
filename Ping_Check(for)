@@ -1,0 +1,9 @@
+#!/bin/bash
+file=`cat /root/ip.txt`
+  for ip in $file; do
+    if ping -q -c 1 -W 1 $ip>/dev/null; then
+        echo $ip >> work.txt
+    else
+        echo $ip >> dont.txt
+    fi
+  done
