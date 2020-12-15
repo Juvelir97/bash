@@ -1,0 +1,28 @@
+d=$((a*$(( b + c ))))
+e=$(( a * b * c ))
+f=$(( a +  b *  c ))
+g=$(((( a + b )) * c))
+h=$(( a + b + c ))
+m=0
+for arg in "$d" "$e" "$f" "$g" "$h"; do
+   if [ "$arg" -gt "$m" ] 
+    then
+        m=$arg 
+    fi
+done
+echo "$m"
+
+
+---------------------------------------------
+Another Version
+
+ARRAY=($((a+b+c)) $((a*b*c)) $((a*(b+c))) $(((a+b)*c)))
+
+max=0
+
+for v in ${ARRAY[@]}; do
+  if (( $v > $max ));
+    then max=$v;
+  fi; done
+ 
+echo $max
