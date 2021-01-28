@@ -1,0 +1,22 @@
+#!/bin/bash
+gps() {
+   
+   readarray -d "," -t x_array <<< $2
+   
+   max=0
+   lastPosition=0
+   for i in ${x_array[@]}; do
+        
+     speed=$( echo "(3600 * ($i-$lastPosition)) / $1" | bc)
+    
+     if [ $speed -gt $max ]; then
+       max=$speed
+     fi
+       
+     lastPosition=$i
+   done
+      
+     echo "$max"
+     
+}
+gps $1 "$2"
