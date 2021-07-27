@@ -1,0 +1,2 @@
+for octet in {1..254}; do ping -c 1 10.0.10.$octet -W 1 >>
+➥ pingsweep.txt & done
