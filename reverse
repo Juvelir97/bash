@@ -1,0 +1,2 @@
+echo $str|tr ' ' '\n'|tac|tr '\n' ' ' # reverse words order
+echo $str|awk '{s=$1;$1=$NF;$NF=s}1'  #reverse each symbol
