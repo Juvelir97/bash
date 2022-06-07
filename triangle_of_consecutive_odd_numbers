@@ -1,0 +1,8 @@
+n=$1
+sum=0
+first_number=$(( $n * ( $n-1 ) + 1 ))
+last_number=$(( $first_number + ( ($n-1)*2 ) ))
+for (( i=$first_number; i<=$last_number; i+=2)); do
+    sum=$(( $sum + $i ))
+done
+echo $sum
